@@ -13,6 +13,7 @@
 		435A75BC1CFD988E00AE193F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 435A75BA1CFD988E00AE193F /* Main.storyboard */; };
 		435A75BE1CFD988E00AE193F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 435A75BD1CFD988E00AE193F /* Assets.xcassets */; };
 		435A75C11CFD988E00AE193F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 435A75BF1CFD988E00AE193F /* LaunchScreen.storyboard */; };
+		4366AF491CFDAD2700D42032 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4366AF481CFDAD2700D42032 /* CollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		435A75BD1CFD988E00AE193F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		435A75C01CFD988E00AE193F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		435A75C21CFD988E00AE193F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4366AF471CFDAD2700D42032 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		4366AF481CFDAD2700D42032 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,8 @@
 				435A75BF1CFD988E00AE193F /* LaunchScreen.storyboard */,
 				435A75C21CFD988E00AE193F /* Info.plist */,
 				435A75B11CFD988E00AE193F /* Supporting Files */,
+				4366AF471CFDAD2700D42032 /* CollectionViewCell.h */,
+				4366AF481CFDAD2700D42032 /* CollectionViewCell.m */,
 			);
 			path = pickervieweg;
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 			files = (
 				435A75B91CFD988E00AE193F /* ViewController.m in Sources */,
 				435A75B61CFD988E00AE193F /* AppDelegate.m in Sources */,
+				4366AF491CFDAD2700D42032 /* CollectionViewCell.m in Sources */,
 				435A75B31CFD988E00AE193F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,6 +306,7 @@
 				435A75C71CFD988E00AE193F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
