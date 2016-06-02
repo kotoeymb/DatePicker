@@ -16,6 +16,7 @@
 @property (strong, nonatomic) NSArray      *month_Array;
  @property (strong, nonatomic) NSArray *arr_dates;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *col_height;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_comment_here;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collview;
  @property (strong, nonatomic) NSArray *timeArray;

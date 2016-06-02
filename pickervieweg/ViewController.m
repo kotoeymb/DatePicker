@@ -39,6 +39,13 @@
     _collview.delegate = self;
     self.collview.allowsMultipleSelection = YES;
     
+//    CGRect frame = self.collview.frame;
+//    frame.size.width=85;
+//    self.collview.frame = frame;
+    
+    _txt_view.delegate = self;
+
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -221,16 +228,16 @@
     [self.collview reloadData];
     if (app < 4) {
         
-        self.col_height.constant = 55;
+        self.col_height.constant = 59;
         NSLog(@"aaa %i",app);
     }
     else if(app< 8){
         
-        self.col_height.constant = 110;
+        self.col_height.constant = 115;
         NSLog(@"aaa %i",app);
     }else
     {
-        self.col_height.constant= 165;
+        self.col_height.constant= 170;
         NSLog(@"aaa %i",app);
     }
 
@@ -253,20 +260,35 @@
 
 //- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 //{
-//   float cellwidth = self.collview.frame.size.width;
+//   float cellwidth = self.collview.frame.size.width/4;
 //   return CGSizeMake(cellwidth, 56.f);
-//    //return 5f;
 //}
 // 
 
 
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+//- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+//{
+//    return 2;
+//    
+//}
+
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 3;
-    
+    // NSLog(@"Setting size for cell at index %d",indexPath.row);
+    CGSize mSize = CGSizeMake(85, 53);
+    return mSize;
+}
+-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
+
+    return 2.0;
 }
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    return 3;
+    return 2.0;
+}
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    return UIEdgeInsetsMake(3, 3, 3, 3);
+
 }
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     // #warning Incomplete implementation, return the number of sections
@@ -341,26 +363,48 @@
     [textField resignFirstResponder];
     return YES;
 }
+//
+//- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
+//{
+//    if ([textView.text isEqualToString:@"Comment"]) {
+//        textView.text = @"";
+//    }
+//    
+//    return YES;
+//}
 
-- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
-{
-    if ([textView.text isEqualToString:@"Comment"]) {
-        textView.text = @"";
+//- (BOOL)textViewShouldEndEditing:(UITextView *)textView
+//{
+//    if (textView.text.length == 0) {
+//        textView.text = @"Comment";
+//    }
+//    return YES;
+//}
+//
+//- (void)textViewDidChange:(UITextView *)textView
+//{
+//    CGFloat fixedWidth = textView.frame.size.width;
+//    CGSize newSize = [textView sizeThatFits:CGSizeMake(fixedWidth, MAXFLOAT)];
+//    if (newSize.height <= 250) {
+//        CGRect newFrame = textView.frame;
+//        newFrame.size = CGSizeMake(fmaxf(newSize.width, fixedWidth), newSize.height);
+//        textView.frame = newFrame;
+//        NSLog(@"textView height : %f",newSize.height);
+//    }
+//
+//    
+//    
+//}
+- (void)textViewDidChange:(UITextView *)textView {
+    // Enable and disable lblPlaceHolderText
+    if ([textView.text length] > 0) {
+        [textView setBackgroundColor:[UIColor whiteColor]];
+        [self.lbl_comment_here setHidden:YES];
+    } else {
+        [textView setBackgroundColor:[UIColor clearColor]];
+        [self.lbl_comment_here setHidden:NO];
     }
     
-    return YES;
-}
-
-- (BOOL)textViewShouldEndEditing:(UITextView *)textView
-{
-    if (textView.text.length == 0) {
-        textView.text = @"Comment";
-    }
-    return YES;
-}
-
-- (void)textViewDidChange:(UITextView *)textView
-{
     CGFloat fixedWidth = textView.frame.size.width;
     CGSize newSize = [textView sizeThatFits:CGSizeMake(fixedWidth, MAXFLOAT)];
     if (newSize.height <= 250) {
@@ -369,24 +413,26 @@
         textView.frame = newFrame;
         NSLog(@"textView height : %f",newSize.height);
     }
-    
-}
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
-{
-    BOOL retValue = YES;
-    CGFloat fixedWidth = textView.frame.size.width;
-    CGSize newSize = [textView sizeThatFits:CGSizeMake(fixedWidth, MAXFLOAT)];
-    NSLog(@"textView height : %f",newSize.height);
-    if (newSize.height <= 250) {
-        retValue = YES;
-        NSLog(@"return YES");
-    } else {
-        retValue = NO;
-        NSLog(@"return NO");
-    }
-    
-    return retValue;
+
 }
 
+
+
+//- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+//{
+//    BOOL retValue = YES;
+//    CGFloat fixedWidth = textView.frame.size.width;
+//    CGSize newSize = [textView sizeThatFits:CGSizeMake(fixedWidth, MAXFLOAT)];
+//    NSLog(@"textView height : %f",newSize.height);
+//    if (newSize.height <= 250) {
+//        retValue = YES;
+//        NSLog(@"return YES");
+//    } else {
+//        retValue = NO;
+//        NSLog(@"return NO");
+//    }
+//    
+//    return retValue;
+//}
 
 @end

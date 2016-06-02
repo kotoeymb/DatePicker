@@ -57,28 +57,27 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="oYM-bQ-45K"/>
                                 </connections>
                             </pickerView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mFg-6I-9IV">
-                                <rect key="frame" x="5" y="361" width="600" height="61"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mFg-6I-9IV">
+                                <rect key="frame" x="0.0" y="361" width="600" height="61"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="61" id="3A1-Om-bU8"/>
                                 </constraints>
-                                <edgeInsets key="layoutMargins" top="3" left="3" bottom="3" right="3"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="3" minimumInteritemSpacing="3" id="bcb-53-RzX">
-                                    <size key="itemSize" width="85" height="53"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="QWe-nA-q0T">
+                                    <size key="itemSize" width="85" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" reuseIdentifier="myCell" id="zEa-xB-NVO" customClass="CollectionViewCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="85" height="53"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="85" height="53"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="9PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZjY-f8-twE">
-                                                    <rect key="frame" x="8" y="10" width="67" height="34"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="9PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZjY-f8-twE">
+                                                    <rect key="frame" x="0.0" y="0.0" width="85" height="53"/>
                                                     <edgeInsets key="layoutMargins" top="8" left="7" bottom="8" right="8"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -87,6 +86,11 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="ZjY-f8-twE" firstAttribute="centerY" secondItem="zEa-xB-NVO" secondAttribute="centerY" id="BaC-dT-S6x"/>
+                                            <constraint firstItem="ZjY-f8-twE" firstAttribute="centerX" secondItem="zEa-xB-NVO" secondAttribute="centerX" id="DSq-ic-jiT"/>
+                                        </constraints>
+                                        <size key="customSize" width="85" height="85"/>
                                         <connections>
                                             <outlet property="lbl_time" destination="ZjY-f8-twE" id="LKw-2e-bVz"/>
                                         </connections>
@@ -97,19 +101,31 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="ftG-Ed-Qtj"/>
                                 </connections>
                             </collectionView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Comment" translatesAutoresizingMaskIntoConstraints="NO" id="gpt-4L-Vl0" userLabel="txt_view">
-                                <rect key="frame" x="100" y="475" width="470" height="36"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gpt-4L-Vl0" userLabel="txt_view">
+                                <rect key="frame" x="86" y="477" width="484" height="31"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" hint="Type here">
+                                    <accessibilityTraits key="traits" keyboardKey="YES"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="31" id="S2u-mq-90z"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="hmd-Jm-vUz"/>
+                                </connections>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Note" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HhN-O1-oaC">
-                                <rect key="frame" x="13" y="475" width="64" height="36"/>
+                                <rect key="frame" x="14" y="455" width="64" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Enter Here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOH-l8-qPe" userLabel="comment_here">
+                                <rect key="frame" x="149" y="477" width="196" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -124,6 +140,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="gpt-4L-Vl0" secondAttribute="trailing" constant="10" id="MCp-Cy-mDu"/>
                             <constraint firstItem="HhN-O1-oaC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-7" id="MRb-vY-lJu"/>
                             <constraint firstItem="euq-7n-YNN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="Nxr-P6-Ls4"/>
+                            <constraint firstItem="gOH-l8-qPe" firstAttribute="leading" secondItem="HhN-O1-oaC" secondAttribute="trailing" constant="23" id="PDd-FN-vNc"/>
                             <constraint firstItem="mFg-6I-9IV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Rlm-3E-jUp"/>
                             <constraint firstAttribute="trailing" secondItem="mFg-6I-9IV" secondAttribute="trailing" constant="20" id="SUb-gq-ANI"/>
                             <constraint firstItem="mFg-6I-9IV" firstAttribute="top" secondItem="Psl-f7-mZh" secondAttribute="top" constant="5" id="TGL-Pc-rEe"/>
@@ -133,15 +150,20 @@
                             <constraint firstItem="mFg-6I-9IV" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="Vn4-JV-gGT"/>
                             <constraint firstItem="gpt-4L-Vl0" firstAttribute="leading" secondItem="HhN-O1-oaC" secondAttribute="trailing" constant="23" id="WBe-fP-WFQ"/>
                             <constraint firstItem="rgh-9S-5Nu" firstAttribute="top" secondItem="HhN-O1-oaC" secondAttribute="bottom" constant="16" id="YCt-lL-Hlz"/>
+                            <constraint firstItem="gpt-4L-Vl0" firstAttribute="top" secondItem="mFg-6I-9IV" secondAttribute="bottom" constant="30" id="ZFV-Yb-1yZ"/>
                             <constraint firstItem="4NZ-WT-iak" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ZiR-iS-f4I"/>
                             <constraint firstItem="mFg-6I-9IV" firstAttribute="top" secondItem="Psl-f7-mZh" secondAttribute="bottom" constant="22" id="Zj5-gY-sy1"/>
                             <constraint firstItem="mFg-6I-9IV" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="aoK-XS-zGp"/>
                             <constraint firstAttribute="trailing" secondItem="euq-7n-YNN" secondAttribute="trailing" constant="30" id="blh-VO-BVC"/>
                             <constraint firstItem="Dll-g6-neN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="32" id="cHN-oi-2sv"/>
+                            <constraint firstItem="gOH-l8-qPe" firstAttribute="bottom" secondItem="gpt-4L-Vl0" secondAttribute="bottom" id="dj0-Tc-kac"/>
                             <constraint firstItem="Psl-f7-mZh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="goJ-Nu-ft8"/>
-                            <constraint firstItem="HhN-O1-oaC" firstAttribute="top" secondItem="mFg-6I-9IV" secondAttribute="bottom" constant="53" id="hC1-yy-vYk"/>
+                            <constraint firstItem="HhN-O1-oaC" firstAttribute="top" secondItem="mFg-6I-9IV" secondAttribute="bottom" constant="27" id="hC1-yy-vYk"/>
+                            <constraint firstItem="gOH-l8-qPe" firstAttribute="baseline" secondItem="HhN-O1-oaC" secondAttribute="baseline" id="hFM-9P-Es1"/>
                             <constraint firstItem="mFg-6I-9IV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hQW-3t-TRY"/>
                             <constraint firstItem="4NZ-WT-iak" firstAttribute="top" secondItem="Dll-g6-neN" secondAttribute="bottom" constant="15" id="kGB-Yk-Ffc"/>
+                            <constraint firstItem="gOH-l8-qPe" firstAttribute="top" secondItem="mFg-6I-9IV" secondAttribute="bottom" constant="30" id="kf9-pk-rXl"/>
+                            <constraint firstItem="gOH-l8-qPe" firstAttribute="bottom" secondItem="gpt-4L-Vl0" secondAttribute="bottom" id="nTg-TN-7BR"/>
                             <constraint firstItem="HhN-O1-oaC" firstAttribute="baseline" secondItem="gpt-4L-Vl0" secondAttribute="baseline" id="oCW-vt-SNW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gpt-4L-Vl0" secondAttribute="trailing" constant="10" id="p96-Kw-2ws"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rgh-9S-5Nu" secondAttribute="bottom" constant="8" id="rAa-Qc-YBo"/>
@@ -158,6 +180,9 @@
                                 <exclude reference="aoK-XS-zGp"/>
                                 <exclude reference="hQW-3t-TRY"/>
                                 <exclude reference="MCp-Cy-mDu"/>
+                                <exclude reference="zvE-tc-fFt"/>
+                                <exclude reference="dj0-Tc-kac"/>
+                                <exclude reference="nTg-TN-7BR"/>
                                 <exclude reference="YCt-lL-Hlz"/>
                                 <exclude reference="TRc-YW-fOp"/>
                             </mask>
@@ -167,6 +192,7 @@
                         <outlet property="col_height" destination="3A1-Om-bU8" id="VTS-gB-fPe"/>
                         <outlet property="collview" destination="mFg-6I-9IV" id="MAE-Oa-0sF"/>
                         <outlet property="color" destination="4bB-kt-HeP" id="qkb-PL-MaL"/>
+                        <outlet property="lbl_comment_here" destination="gOH-l8-qPe" id="G49-L0-Ghj"/>
                         <outlet property="picker" destination="4NZ-WT-iak" id="bnd-tl-RyO"/>
                         <outlet property="txt_view" destination="gpt-4L-Vl0" id="caR-6Q-bDM"/>
                     </connections>
