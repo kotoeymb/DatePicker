@@ -10,7 +10,7 @@
 #import "CollectionViewCell.h"
 
 @interface ViewController (){
-    NSInteger firstComponent;
+    NSInteger selectedindex;
      int app;
 }
 
@@ -91,6 +91,7 @@
         return [self.month_Array objectAtIndex:row];
     }
 }
+
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row   inComponent:(NSInteger)component{NSLog(@"Selected Row %ld", (long)row);
     
    // NSMutableArray *muarr_temp = [[NSMutableArray alloc] initWithCapacity:_timeArray.count];
@@ -124,7 +125,7 @@
             self.collview.backgroundColor = [UIColor purpleColor];
             self.color.text = @"Blue";
             self.color.textColor = [UIColor colorWithRed:0.0f/255.0f green:0.0f/255.0f blue:255.0f/255.0f alpha:alphaValue];
-            _timeArray = @[@"9PM"];
+         //   _timeArray = @[@"9PM"];
            
             NSLog(@"AlphaValue is: %d",app);
             break;
@@ -218,11 +219,55 @@
     }
    
     [self.collview reloadData];
+    if (app < 4) {
+        
+        self.col_height.constant = 55;
+        NSLog(@"aaa %i",app);
+    }
+    else if(app< 8){
+        
+        self.col_height.constant = 110;
+        NSLog(@"aaa %i",app);
+    }else
+    {
+        self.col_height.constant= 165;
+        NSLog(@"aaa %i",app);
+    }
+
+    
+    [self.view setNeedsLayout];
+    [self.collview reloadData];
 }
 
 
 #pragma mark <UICollectionViewDataSource>
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+ //   selectedindex = indexPath.item;
+    [collectionView reloadData];
+    
+    
+}
+
+//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+//{
+//   float cellwidth = self.collview.frame.size.width;
+//   return CGSizeMake(cellwidth, 56.f);
+//    //return 5f;
+//}
+// 
+
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 3;
+    
+}
+-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    return 3;
+}
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     // #warning Incomplete implementation, return the number of sections
     return 1;
@@ -243,9 +288,23 @@
     // Configure the cell
    //   cell.lbl_time.text = self.timeArray[indexPath.row];
     cell.lbl_time.text = [NSString stringWithFormat:@"%li", (long)indexPath.row +1 ];
+    
+    if (selectedindex == indexPath.item) {
+        cell.backgroundColor = [UIColor cyanColor];
+        cell.lbl_time.textColor = [UIColor whiteColor];
+    }
+    else {
+        cell.backgroundColor = [UIColor whiteColor];
+        cell.lbl_time.textColor = [UIColor lightGrayColor];
+    }
+ //   return cell;
+
+    
     return cell;
     
-}/*
+}
+
+/*
 
 #pragma mark <UICollectionViewDelegate>
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -272,6 +331,62 @@
 //    NSArray *timeslots = delivertime.TimeSlot;
 //    return timeslots;
 //}
+
+
+
+
+#pragma mark - UITextField Delegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+    if ([textView.text isEqualToString:@"Comment"]) {
+        textView.text = @"";
+    }
+    
+    return YES;
+}
+
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView
+{
+    if (textView.text.length == 0) {
+        textView.text = @"Comment";
+    }
+    return YES;
+}
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    CGFloat fixedWidth = textView.frame.size.width;
+    CGSize newSize = [textView sizeThatFits:CGSizeMake(fixedWidth, MAXFLOAT)];
+    if (newSize.height <= 250) {
+        CGRect newFrame = textView.frame;
+        newFrame.size = CGSizeMake(fmaxf(newSize.width, fixedWidth), newSize.height);
+        textView.frame = newFrame;
+        NSLog(@"textView height : %f",newSize.height);
+    }
+    
+}
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    BOOL retValue = YES;
+    CGFloat fixedWidth = textView.frame.size.width;
+    CGSize newSize = [textView sizeThatFits:CGSizeMake(fixedWidth, MAXFLOAT)];
+    NSLog(@"textView height : %f",newSize.height);
+    if (newSize.height <= 250) {
+        retValue = YES;
+        NSLog(@"return YES");
+    } else {
+        retValue = NO;
+        NSLog(@"return NO");
+    }
+    
+    return retValue;
+}
 
 
 @end

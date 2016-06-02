@@ -8,16 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController <UIPickerViewDataSource,UIPickerViewDelegate, UICollectionViewDelegate,UICollectionViewDataSource>
+@interface ViewController : UIViewController <UIPickerViewDataSource,UIPickerViewDelegate, UICollectionViewDelegate,UICollectionViewDataSource,UITextFieldDelegate,UITextViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (strong, nonatomic) IBOutlet UIPickerView *picker;
 @property (strong, nonatomic) IBOutlet UILabel *color;
 @property (strong, nonatomic) NSArray *date_Array;
 @property (strong, nonatomic) NSArray      *month_Array;
  @property (strong, nonatomic) NSArray *arr_dates;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *col_height;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collview;
  @property (strong, nonatomic) NSArray *timeArray;
+// @property (weak, nonatomic) IBOutlet UITextField *txt_field;
+@property (weak, nonatomic) IBOutlet UITextView *txt_view;
 
 
 @end
