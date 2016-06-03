@@ -358,28 +358,29 @@
 
 
 #pragma mark - UITextField Delegate
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
     return YES;
 }
-//
-//- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
-//{
-//    if ([textView.text isEqualToString:@"Comment"]) {
-//        textView.text = @"";
-//    }
-//    
-//    return YES;
-//}
 
-//- (BOOL)textViewShouldEndEditing:(UITextView *)textView
-//{
-//    if (textView.text.length == 0) {
-//        textView.text = @"Comment";
-//    }
-//    return YES;
-//}
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+    if ([textView.text isEqualToString:@"Comment"]) {
+        textView.text = @"";
+    }
+   
+    return YES;
+}
+
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView
+{
+    if (textView.text.length == 0) {
+        textView.text = @"Comment";
+    }
+    return YES;
+}
 //
 //- (void)textViewDidChange:(UITextView *)textView
 //{
@@ -395,6 +396,7 @@
 //    
 //    
 //}
+
 - (void)textViewDidChange:(UITextView *)textView {
     // Enable and disable lblPlaceHolderText
     if ([textView.text length] > 0) {
@@ -404,7 +406,7 @@
         [textView setBackgroundColor:[UIColor clearColor]];
         [self.lbl_comment_here setHidden:NO];
     }
-    
+     textView.scrollEnabled = NO;
     CGFloat fixedWidth = textView.frame.size.width;
     CGSize newSize = [textView sizeThatFits:CGSizeMake(fixedWidth, MAXFLOAT)];
     if (newSize.height <= 250) {
