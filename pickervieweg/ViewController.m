@@ -44,31 +44,36 @@
 //    self.collview.frame = frame;
     
     _txt_view.delegate = self;
-
     
-}
+    [self viewDidLayoutSubviews];
+    
+   }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    
+    
 }
 
 // returns the # of rows in each component..
 
+
+
+#pragma picker view Delegate
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section;
+{
+    return 2.0;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section;
+{
+    return 0.0;
+}
+
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
   return 2;
-   /*  NSUInteger number = 0;
-    if (pickerView == 1) {
-        number = 1;
-    } else {
-        
-        number = _arr_dates.count;
-        
-    }
-    NSLog(@"number of rows in component : %ld", (long)p);
-    return number;
-    */
 
 }
 
@@ -97,6 +102,31 @@
     {
         return [self.month_Array objectAtIndex:row];
     }
+}
+- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
+{
+    UILabel* pickerLabel = (UILabel*)view;
+    
+    [[pickerView.subviews objectAtIndex:1] setHidden:TRUE];
+    [[pickerView.subviews objectAtIndex:2] setHidden:TRUE];
+    
+    if (!pickerLabel)
+    {
+        pickerLabel = [[UILabel alloc] init];
+        
+        pickerLabel.font = [UIFont fontWithName:@"SFUIText-Regular" size:16];
+        
+        pickerLabel.textAlignment=NSTextAlignmentCenter;
+    }
+    
+    if (component == 0) {
+        [pickerLabel setText:[_date_Array objectAtIndex:row]];
+    }
+    else {
+         [pickerLabel setText:[_month_Array objectAtIndex:row]];
+    }
+    
+    return pickerLabel;
 }
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row   inComponent:(NSInteger)component{NSLog(@"Selected Row %ld", (long)row);
@@ -278,13 +308,13 @@
     CGSize mSize = CGSizeMake(85, 53);
     return mSize;
 }
--(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
-
-    return 2.0;
-}
--(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    return 2.0;
-}
+//-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
+//
+//    return 2.0;
+//}
+//-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+//    return 2.0;
+//}
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
     return UIEdgeInsetsMake(3, 3, 3, 3);
@@ -437,4 +467,30 @@
 //    return retValue;
 //}
 
+#pragma ScrollView
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    
+    
+   //  [self.colview_time reloadData];
+    
+    
+  //  self.height_bgdelivertimeview.constant = 220 + self.tv_comment.frame.size.height;
+    // _scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view_deliverytime.frame.origin.y + self.height_bgdelivertimeview.constant + 100);
+    _scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.txt_view.frame.origin.y + self.col_height.constant + 100);
+
+   
+}
+
+
+#pragma Continue button
+
+- (IBAction)btn_continue:(id)sender {
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Your Email will be send Soon" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    [alert show];
+    
+}
 @end
