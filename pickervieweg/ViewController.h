@@ -10,6 +10,7 @@
 
 @interface ViewController : UIViewController <UIPickerViewDataSource,UIPickerViewDelegate, UICollectionViewDelegate,UICollectionViewDataSource,UITextFieldDelegate,UITextViewDelegate, UICollectionViewDelegateFlowLayout,UIAlertViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UILabel *lbl_date;
 @property (strong, nonatomic) IBOutlet UIPickerView *picker;
 @property (strong, nonatomic) IBOutlet UILabel *color;
 @property (strong, nonatomic) NSArray *date_Array;
