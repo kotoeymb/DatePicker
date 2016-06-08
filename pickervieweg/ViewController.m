@@ -44,7 +44,8 @@
 //    self.collview.frame = frame;
     
     _txt_view.delegate = self;
-    
+    self.collview.allowsMultipleSelection = NO;
+
     [self viewDidLayoutSubviews];
     
    }
@@ -144,19 +145,7 @@
     NSInteger secondComponentRow = [self.picker selectedRowInComponent:1];
     float alphaValue = 0.0;
     
-    
-//    if (firstComponentRow) {
-//        if () {
-//            <#statements#>
-//        }
-//    }
-//    else{
-//    
-//        NSLog(@"HElloWorld");
-//    }
-//    
-    // _timeArray[firstComponent] = NULL;
-    switch(secondComponentRow) {
+        switch(secondComponentRow) {
         case 0:
             alphaValue = 50.0f/255.0f;
             break;
@@ -167,15 +156,16 @@
             
         case 0:
             
-            self.collview.backgroundColor = [UIColor purpleColor];
+          //   self.collview.backgroundColor = [UIColor purpleColor];
             self.color.text = @"Blue";
             self.color.textColor = [UIColor colorWithRed:0.0f/255.0f green:0.0f/255.0f blue:255.0f/255.0f alpha:alphaValue];
          //   _timeArray = @[@"9PM"];
            self.lbl_date.text = @"April 1";
+            app = 0;
             NSLog(@"AlphaValue is: %d",app);
             break;
         case 1:
-             self.collview.backgroundColor = [UIColor purpleColor];
+           //   self.collview.backgroundColor = [UIColor purpleColor];
             self.color.text = @"Green";
             self.color.textColor = [UIColor colorWithRed:0.0f/255.0f green:255.0f/255.0f blue:0.0f/255.0f alpha:alphaValue];
             self.lbl_date.text = @"April 2";
@@ -185,7 +175,7 @@
             break;
            
         case 2:
-             self.collview.backgroundColor = [UIColor colorWithRed:205.0f/255.0f green:140.0f/255.0f blue:31.0f/255.0f alpha:alphaValue];
+           //   self.collview.backgroundColor = [UIColor colorWithRed:205.0f/255.0f green:140.0f/255.0f blue:31.0f/255.0f alpha:alphaValue];
             self.color.text = @"Orange ";
              self.lbl_date.text = @"April 3";
             self.color.textColor = [UIColor colorWithRed:205.0f/255.0f green:140.0f/255.0f blue:31.0f/255.0f alpha:alphaValue];
@@ -194,7 +184,7 @@
             app = 2;
             break;
         case 3:
-             self.collview.backgroundColor = [UIColor colorWithRed:255.0f/255.0f green:0.0f/255.0f blue:255.0f/255.0f alpha:alphaValue];
+           //  self.collview.backgroundColor = [UIColor colorWithRed:255.0f/255.0f green:0.0f/255.0f blue:255.0f/255.0f alpha:alphaValue];
             self.color.text = @"Purple ";
              self.lbl_date.text = @"April 4";
             self.color.textColor = [UIColor colorWithRed:255.0f/255.0f green:0.0f/255.0f blue:255.0f/255.0f alpha:alphaValue];
@@ -203,7 +193,7 @@
              app = 3;
             break;
         case 4:
-             self.collview.backgroundColor =[UIColor colorWithRed:255.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:alphaValue];
+           //  self.collview.backgroundColor =[UIColor colorWithRed:255.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:alphaValue];
             self.color.text = @"Red";
              self.lbl_date.text = @"April 5";
             self.color.textColor = [UIColor colorWithRed:255.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:alphaValue];
@@ -214,7 +204,7 @@
             
             
         case 5:
-            self.collview.backgroundColor =[UIColor colorWithRed:255.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:alphaValue];
+          //  self.collview.backgroundColor =[UIColor colorWithRed:255.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:alphaValue];
             self.color.text = @"Yellow ";
              self.lbl_date.text = @"April 6";
             self.color.textColor = [UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:0.0f/255.0f alpha:alphaValue];
@@ -224,7 +214,7 @@
             break;
         case 6:
              self.lbl_date.text = @"April 7";
-            self.collview.backgroundColor =[UIColor colorWithRed:255.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:alphaValue];
+         //   self.collview.backgroundColor =[UIColor colorWithRed:255.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:alphaValue];
             self.color.text = @"Blue";
             self.color.textColor = [UIColor colorWithRed:0.0f/255.0f green:0.0f/255.0f blue:255.0f/255.0f alpha:alphaValue];
             NSLog(@"AlphaValue is: %f",alphaValue);
@@ -233,7 +223,7 @@
             break;
         case 7:
              self.lbl_date.text = @"April 8";
-             self.collview.backgroundColor = [UIColor colorWithRed:205.0f/255.0f green:140.0f/255.0f blue:31.0f/255.0f alpha:alphaValue];
+         //     self.collview.backgroundColor = [UIColor colorWithRed:205.0f/255.0f green:140.0f/255.0f blue:31.0f/255.0f alpha:alphaValue];
             self.color.text = @"Green";
             self.color.textColor = [UIColor colorWithRed:0.0f/255.0f green:255.0f/255.0f blue:0.0f/255.0f alpha:alphaValue];
              app = 7;
@@ -242,7 +232,7 @@
             break;
         case 8:
              self.lbl_date.text = @"April 9";
-             self.collview.backgroundColor = [UIColor colorWithRed:205.0f/255.0f green:140.0f/255.0f blue:31.0f/255.0f alpha:alphaValue];
+          //    self.collview.backgroundColor = [UIColor colorWithRed:205.0f/255.0f green:140.0f/255.0f blue:31.0f/255.0f alpha:alphaValue];
             self.color.text = @"Orange ";
             self.color.textColor = [UIColor colorWithRed:205.0f/255.0f green:140.0f/255.0f blue:31.0f/255.0f alpha:alphaValue];
              app = 8;
@@ -251,7 +241,7 @@
             break;
         case 9:
              self.lbl_date.text = @"April 10";
-             self.collview.backgroundColor = [UIColor colorWithRed:205.0f/255.0f green:140.0f/255.0f blue:31.0f/255.0f alpha:alphaValue];
+         //    self.collview.backgroundColor = [UIColor colorWithRed:205.0f/255.0f green:140.0f/255.0f blue:31.0f/255.0f alpha:alphaValue];
             self.color.text = @"Purple ";
             self.color.textColor = [UIColor colorWithRed:255.0f/255.0f green:0.0f/255.0f blue:255.0f/255.0f alpha:alphaValue];
              app = 9;
@@ -260,7 +250,7 @@
             break;
         case 10:
              self.lbl_date.text = @"April 10";
-             self.collview.backgroundColor = [UIColor colorWithRed:205.0f/255.0f green:140.0f/255.0f blue:31.0f/255.0f alpha:alphaValue];
+         //    self.collview.backgroundColor = [UIColor colorWithRed:205.0f/255.0f green:140.0f/255.0f blue:31.0f/255.0f alpha:alphaValue];
             self.color.text = @"Red";
             self.color.textColor = [UIColor colorWithRed:255.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:alphaValue];
              app = 10;
@@ -310,19 +300,6 @@
     
 }
 
-//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-//{
-//   float cellwidth = self.collview.frame.size.width/4;
-//   return CGSizeMake(cellwidth, 56.f);
-//}
-// 
-
-
-//- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
-//{
-//    return 2;
-//    
-//}
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -330,18 +307,13 @@
     CGSize mSize = CGSizeMake(85, 53);
     return mSize;
 }
-//-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
-//
-//    return 2.0;
-//}
-//-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-//    return 2.0;
-//}
+
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
     return UIEdgeInsetsMake(3, 3, 3, 3);
 
 }
+
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     // #warning Incomplete implementation, return the number of sections
     return 1;
@@ -376,37 +348,23 @@
     return cell;
     
 }
-
-/*
-
-#pragma mark <UICollectionViewDelegate>
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-}
-  */ 
 //
-//- (NSArray*)getTimeSlotWithIndex:(NSInteger)index
-//{
-//    model_deliverTime *delivertime = arr_delivertime[index];
-//    NSArray *timeslots = delivertime.TimeSlot;
-//    return timeslots;
+//#pragma mark <UICollectionViewDelegate>
+//
+//
+//
+//- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
+//    
 //}
-
-
-
+//
+//- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath{
+//    
+//}
+//
+//- (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath{
+//    
+//}
+//
 
 #pragma mark - UITextField Delegate
 
@@ -430,9 +388,13 @@
     if (textView.text.length == 0) {
         textView.text = @"Comment Here";
     }
+    [textView resignFirstResponder];
+
+
     return YES;
 }
-//
+
+
 - (void)textViewDidChange:(UITextView *)textView
 {
     CGFloat fixedWidth = textView.frame.size.width;
@@ -446,43 +408,6 @@
     
     
 }
-/*
-- (void)textViewDidChange:(UITextView *)textView {
-    // Enable and disable lblPlaceHolderText
-    if ([textView.text length] > 0) {
-        [textView setBackgroundColor:[UIColor whiteColor]];
-        [self.lbl_comment_here setHidden:YES];
-    } else {
-        [textView setBackgroundColor:[UIColor clearColor]];
-        [self.lbl_comment_here setHidden:NO];
-    }
-   // textView.scrollEnabled = NO;
-    CGFloat fixedWidth = textView.frame.size.width;
-    CGSize newSize = [textView sizeThatFits:CGSizeMake(fixedWidth, MAXFLOAT)];
-//    CGRect newFrame = textView.frame;
-//    newFrame.size = CGSizeMake(fmaxf(newSize.width, fixedWidth), newSize.height);
-//    textView.frame = newFrame;
-    
-    NSLog(@"textView height : %f",newSize.height);
-    NSInteger restrictedLength=140;
-    
-    NSString *temp=textView.text;
-    
-    if([[textView text] length] > restrictedLength){
-        textView.text=[temp substringToIndex:[temp length]-1];
-    }
-
-    
-//    if (newSize.height <= 250) {
-//        CGRect newFrame = textView.frame;
-//        newFrame.size = CGSizeMake(fmaxf(newSize.width, fixedWidth), newSize.height);
-//        textView.frame = newFrame;
-//        NSLog(@"textView height : %f",newSize.height);
-//    }
-
-}
- 
- */
 
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
@@ -491,15 +416,23 @@
     CGFloat fixedWidth = textView.frame.size.width;
     CGSize newSize = [textView sizeThatFits:CGSizeMake(fixedWidth, MAXFLOAT)];
     NSLog(@"textView height : %f",newSize.height);
-    if (newSize.height <= 250) {
+    
+    if (newSize.height <= 200) {
         retValue = YES;
         NSLog(@"return YES");
-    } else {
+    }  else {
         
-        retValue = NO;
+        // retValue = NO;
         NSLog(@"return NO");
+        if(newSize.height>=200){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Your Message Too Much" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+        
+         retValue = YES;
         [alert show];
+        
+
+       
+        }
         
         retValue = YES;
         
@@ -508,28 +441,7 @@
     
     return retValue;
     
-//    NSLog(@"inputView is %@",NSStringFromCGRect(self.inputView.frame));
-//    CGSize constraint = CGSizeMake(self.inputView.frame.size.width, self.inputView.frame.size.height);
-//    
-//    NSDictionary *stringAttributes = @{ NSFontAttributeName: [UIFont systemFontOfSize:self.inputView.font.pointSize] };
-//    
-//    CGSize textSize = [self.inputView.text boundingRectWithSize:constraint
-//                                                        options:NSStringDrawingUsesFontLeading
-//                                                     attributes:stringAttributes
-//                                                        context:nil].size;
-//    [UIView animateWithDuration:.2
-//                     animations:^{
-//                         CGRect r = self.frame;
-//                         r.origin.y -= ceil(textSize.height);       // use ceil function to avoid we have a gap between textview and kboard during transition
-//                         r.size.height += ceil(textSize.height);
-//                         self.frame = r;
-//                     }
-//                     completion:^(BOOL finished) {
-//                         NSLog(@"frame is %@",NSStringFromCGRect(self.frame));
-//                     }
-//     ];
-//    
-//    return YES;
+
 }
 
 #pragma ScrollView
@@ -584,4 +496,39 @@
     newTextViewFrame.size.height += keyboardSize.size.height - 70;
     self.txt_view.frame = newTextViewFrame;
 }
+- (void)viewWillAppear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)keyboardWillShow:(NSNotification*)notification
+{
+    CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0);
+    
+    self.scrollView.contentInset = contentInsets;
+    self.scrollView.scrollIndicatorInsets = contentInsets;
+    
+    CGRect rect = self.view.frame;
+    rect.size.height -= keyboardSize.height;
+    
+    if (!CGRectContainsPoint(rect, self.txt_view.frame.origin)) {
+        CGPoint scrollPoint = CGPointMake(0.0, self.txt_view.frame.origin.y - keyboardSize.height);
+        [self.scrollView setContentOffset:scrollPoint animated:YES];
+    }
+}
+
+
+- (void)dismissKeyboard
+{
+    [self textViewShouldEndEditing:self.txt_view];
+}
+
 @end
